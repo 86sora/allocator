@@ -1,16 +1,21 @@
 #ifndef ALLOC_H
 #define ALLOC_H
 
-#include <stdlib.h>
+#define FREE 0
+#define ALLOC 1
 
-struct blk_node {
+#include <uchar.h>
+
+struct heap_blk {
     size_t size;
-    char available;
-    struct blk_node *next;
+    struct heap_blk *next;
+    struct heap_blk *prev;
+    char status;
 };
 
 void *alloc(size_t n, size_t size);
 
 void alloc_free(void *ptr);
+
 
 #endif

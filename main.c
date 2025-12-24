@@ -9,11 +9,10 @@ typedef struct {
 
 int main() {
     person_t* personptr = (person_t *) alloc(1,sizeof(person_t));
-    person_t* personptr2 = (person_t *) alloc(1,sizeof(person_t));
     personptr->name = alloc(5,sizeof(char));
     strcpy(personptr->name, "deni");
-    personptr->name[4] = '\0';
-    printf("%p %p\n",personptr, personptr2);
-    printf("%s %p\n", personptr->name, personptr->name);
+    personptr->age = 10;
+    printf("%p \n",(void *) personptr);
+    printf("%s %d\n", personptr->name, personptr->age);
     return 0;
 }
